@@ -9,6 +9,12 @@
         @foreach ($user->bookings as $booking)
             <li>{{ $booking->id }}, {{ $booking->user_id }}, {{ $booking->start_date }}, {{ $booking->end_date }},
                 {{ $booking->passengers }}, {{ $booking->car_id }}</li>
+
+            <form method="post" action="/bookings/{{ $booking->id }}/delete">
+                @csrf
+                @method('delete')
+                <button type="submit">Cancel Booking</button>
+            </form>
         @endforeach
     </ul>
 
@@ -23,7 +29,12 @@
             <label for="passengers">Number of passengers</label>
             <input name="passengers" id="passengers" type="number" />
             <label for="car_id">Car</label>
-            <input name="car_id" id="car_id" type="number" />
+            <select name="car_id" id="car_id">
+                @foreach ($cars as $car)
+                    <option value="{{ $car->id }}">{{ $car->brand }}, {{ $car->model }}, Max:
+                        {{ $car->max_passengers }}, Price:{{ $car->price }}</option>
+                @endforeach
+            </select>
 
 
         </div>
