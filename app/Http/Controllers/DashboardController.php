@@ -10,7 +10,8 @@ class DashboardController extends Controller
 
     public function __invoke(Request $request)
     {
+        $cars = \App\Models\Car::all();
         $user = Auth::user();
-        return view('dashboard', compact('user'));
+        return view('dashboard', compact('user'), compact('cars'));
     }
 }
