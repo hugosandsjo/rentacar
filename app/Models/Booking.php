@@ -14,11 +14,11 @@ class Booking extends Model
         'start_date',
         'end_date',
         'passengers',
-        // 'car_id',
+        'car_id',
     ];
 
-    // public function category()
-    // {
-    //     return $this->belongsTo(Car::class);
-    // }
+    public function category()
+    {
+        return $this->belongsTo(Car::class);
+    }
 }
