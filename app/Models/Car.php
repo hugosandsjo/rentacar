@@ -12,7 +12,9 @@ class Car extends Model
 
     protected $fillable = ['max_passengers', 'brand', 'model', 'price'];
 
+
     public function car(): HasMany
+
     {
         return $this->hasMany((Booking::class));
     }
