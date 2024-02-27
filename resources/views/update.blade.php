@@ -12,15 +12,26 @@
 
     @foreach ($user->bookings as $booking)
     <div>
-        <h2>Booking {{ $booking->id }}</h2>
+        <form method="POST" action="/bookings/{{ $booking->id }}">
+            @csrf
+            @method('PATCH')
+            <h2>Booking {{ $booking->id }}</h2>
 
-        <p>Start date: {{ $booking->start_date}}</p>
-        <p>End date: {{ $booking->end_date }}</p>
-        <p>Passengers: {{ $booking->passengers }}</p>
-        <p>Car ID: {{ $booking->car_id}}</p>
-        <button >Edit</button>
-        {{-- {{ print_r($booking->start_date)}} --}}
-        <!-- Add more fields for each booking attribute -->
+            <!-- Add form fields for each booking attribute that you want to be able to edit -->
+            <label for="start_date">Start date:</label>
+            <input id="start_date" name="start_date" type="date" value="{{ $booking->start_date }}">
+
+            <label for="end_date">End date:</label>
+            <input id="end_date" name="end_date" type="date" value="{{ $booking->end_date }}">
+
+            <label for="passengers">Passengers:</label>
+            <input id="passengers" name="passengers" type="number" value="{{ $booking->passengers }}">
+
+            <label for="car_id">Car ID:</label>
+            <input id="car_id" name="car_id" type="number" value="{{ $booking->car_id }}">
+
+            <button type="submit">Save</button>
+        </form>
     </div>
 @endforeach
 <a href="{{ url('/dashboard') }}">BACK</a>
