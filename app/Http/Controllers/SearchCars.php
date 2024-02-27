@@ -9,13 +9,13 @@ class SearchCars extends Controller
 {
     public function SearchCars(Request $request)
     {
-        // Validate the form input (start and end dates)
+
         $validatedData = $request->validate([
             'start_date' => 'required|date',
             'end_date' => 'required|date|after:start_date',
         ]);
 
-        $user = $request->user(); // Get the currently authenticated user
+        $user = $request->user();
 
 
 

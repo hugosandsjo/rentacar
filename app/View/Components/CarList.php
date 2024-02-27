@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class CarList extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $cars;
+    public $startDate;
+    public $endDate;
+
+    public function __construct($cars, $startDate, $endDate)
     {
-        //
+        $this->cars = $cars;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
     }
 
     /**

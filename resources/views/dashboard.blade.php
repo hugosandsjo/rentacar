@@ -7,8 +7,9 @@
 
     <ul>
         @foreach ($user->bookings as $booking)
-            <li>{{ $booking->id }}, {{ $booking->user_id }}, {{ $booking->start_date }}, {{ $booking->end_date }},
-                {{ $booking->passengers }}, {{ $booking->car_id }}</li>
+            <li>booking id:{{ $booking->id }}, user id:{{ $booking->user_id }}, {{ $booking->start_date }},
+                {{ $booking->end_date }},
+                passagerare: {{ $booking->passengers }},bil: {{ $booking->car_id }}</li>
 
             <form method="post" action="/bookings/{{ $booking->id }}/delete">
                 @csrf
@@ -24,7 +25,37 @@
     </ul>
 
 
-    {{-- <form method="post" action="/bookings">
+
+    {{-- Lägg till så man får vällja hur många platser innan så bara bilar med rätt antal säten visas --}}
+    <form method="GET" action="{{ route('cars.search') }}">
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
+
+        <button type="submit">Search</button>
+    </form>
+
+
+
+
+    {{-- skickas till en komponent som bara visas om det finns bilar att visa --}}
+    @if (isset($availableCars))
+        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" />
+    @endif
+
+
+
+
+
+</body>
+
+</html>
+
+
+{{-- <form method="post" action="/bookings">
         @csrf
         <div>
             <label for="start_date">Start date</label>
@@ -45,25 +76,3 @@
         </div>
         <button type="submit">Submit</button>
     </form> --}}
-
-    <form method="GET" action="{{ route('cars.search') }}">
-
-        <!-- Input fields for start and end dates -->
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required>
-
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" required>
-
-        <!-- Submit button -->
-        <button type="submit">Search</button>
-    </form>
-
-    @if (isset($availableCars))
-        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" />
-    @endif
-
-
-</body>
-
-</html>

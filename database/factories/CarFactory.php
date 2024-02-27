@@ -27,7 +27,7 @@ class CarFactory extends Factory
             'max_passengers' => $this->faker->vehicleSeatCount,
             'brand' =>  $vehicle['brand'],
             'model' => $vehicle['model'],
-            'price' => $this->faker->randomDigit(),
+            'price' => $this->faker->numberBetween(100, 1000),
         ];
     }
 }

@@ -18,10 +18,12 @@ class BookingFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+        $startDate = $this->faker->dateTimeBetween('-2 years', '+2 years');
+        $endDate = (clone $startDate)->modify('+1 month');
 
-            'start_date' => $this->faker->date,
-            'end_date' => $this->faker->date,
+        return [
+            'start_date' => $startDate,
+            'end_date' => $endDate,
             'passengers' => $this->faker->numberBetween(1, 5),
             'user_id' => $this->faker->randomElement(User::pluck('id')->toArray()),
             'car_id' => $this->faker->randomElement(Car::pluck('id')->toArray()),
