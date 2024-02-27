@@ -12,6 +12,8 @@ use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\BookingController;
 use App\Models\UpdateBooking;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\SearchCars;
 
 Route::view('/', 'index')->name('login');
 
@@ -30,3 +32,8 @@ Route::delete('bookings/{booking}/delete', DeleteBookingController::class);
 // Route::patch('/bookings/{booking}', UpdateBookingController::class);
 
 Route::get('/dashboard/bookings/{id}/edit', DashboardBookingController::class)->name('dashboard.bookings.edit');
+
+
+
+
+Route::get('/search-cars', [SearchCars::class, 'searchCars'])->name('cars.search');

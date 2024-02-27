@@ -20,12 +20,11 @@
 
                 <button type="submit">Edit</button>
             </form>
-
         @endforeach
     </ul>
 
 
-    <form method="post" action="/bookings">
+    {{-- <form method="post" action="/bookings">
         @csrf
         <div>
             <label for="start_date">Start date</label>
@@ -45,7 +44,24 @@
 
         </div>
         <button type="submit">Submit</button>
+    </form> --}}
+
+    <form method="GET" action="{{ route('cars.search') }}">
+
+        <!-- Input fields for start and end dates -->
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
+
+        <!-- Submit button -->
+        <button type="submit">Search</button>
     </form>
+
+    @if (isset($availableCars))
+        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" />
+    @endif
 
 
 </body>
