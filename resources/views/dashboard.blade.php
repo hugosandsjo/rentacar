@@ -13,13 +13,14 @@
             <form method="post" action="/bookings/{{ $booking->id }}/delete">
                 @csrf
                 @method('delete')
-                <button type="submit">Cancel Booking</button>
+                <button type="submit">Delete</button>
             </form>
-            <form method="post" action="/bookings/{{ $booking->id }}/update">
-                @csrf
-                @method('patch')
-                <button type="submit">Edit booking</button>
+
+            <form action="/bookings/{{ $booking->id }}" method="POST">
+
+                <button type="submit">Edit</button>
             </form>
+
         @endforeach
     </ul>
 
