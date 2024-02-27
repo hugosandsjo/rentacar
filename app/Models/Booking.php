@@ -17,7 +17,7 @@ class Booking extends Model
         'car_id',
     ];
 
-    public function category()
+    public function car()
     {
         return $this->belongsTo(Car::class);
     }
