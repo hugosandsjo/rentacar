@@ -12,7 +12,6 @@ class CreateBookingController extends Controller
     public function __invoke(Request $request)
     {
 
-
         $booking = new Booking;
 
         $booking->start_date = $request['start_date'];

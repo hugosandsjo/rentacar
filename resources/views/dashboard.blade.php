@@ -15,6 +15,11 @@
                 @method('delete')
                 <button type="submit">Cancel Booking</button>
             </form>
+            <form method="post" action="/bookings/{{ $booking->id }}/update">
+                @csrf
+                @method('patch')
+                <button type="submit">Edit booking</button>
+            </form>
         @endforeach
     </ul>
 
