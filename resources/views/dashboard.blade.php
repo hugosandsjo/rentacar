@@ -18,7 +18,8 @@
             </form>
 
             <form action="/bookings/{{ $booking->id }}" method="POST">
-
+                @csrf
+                @method('put')
                 <button type="submit">Edit</button>
             </form>
         @endforeach
