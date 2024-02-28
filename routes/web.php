@@ -15,7 +15,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::view('/', 'index')->name('login');
 
-Route::put('/bookings/{booking}', [UpdateBookingController::class, 'update']);
+Route::put('/bookings/{booking}', [UpdateBookingController::class]);
 
 Route::post('login', LoginController::class);
 Route::post('bookings', CreateBookingController::class);
@@ -23,7 +23,7 @@ Route::post('bookings', CreateBookingController::class);
 Route::get('dashboard', DashboardController::class);
 Route::get('/logout', LogoutController::class);
 
-Route::get('/bookings/{booking}/edit', UpdateBookingController::class, 'edit');
+Route::get('/bookings/{booking}/edit', [DashboardBookingController::class, 'edit'])->name('bookings.edit');
 
 Route::delete('bookings/{booking}/delete', DeleteBookingController::class);
 
