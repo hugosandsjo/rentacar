@@ -17,6 +17,8 @@ class SearchCars extends Controller
 
         $user = $request->user();
 
+        $passangers = $request->input('passangers');
+
 
 
         $availableCars = Car::whereDoesntHave('bookings', function ($query) use ($validatedData) {
@@ -28,6 +30,8 @@ class SearchCars extends Controller
                     ->where('end_date', '>', $validatedData['end_date']);
             });
         })->get();
+
+
 
         return view('dashboard', [
             'availableCars' => $availableCars,

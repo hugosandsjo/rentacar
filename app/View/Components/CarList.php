@@ -11,12 +11,14 @@ class CarList extends Component
     public $cars;
     public $startDate;
     public $endDate;
+    public $passangers;
 
-    public function __construct($cars, $startDate, $endDate)
+    public function __construct($cars, $startDate, $endDate, $passangers)
     {
         $this->cars = $cars;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
+        $this->passangers = $passangers;
     }
 
     /**
