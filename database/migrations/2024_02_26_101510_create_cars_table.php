@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('brand');
             $table->string('model');
             $table->integer('price');
+            $table->string('fileName');
+            $table->string('image');
             $table->timestamps();
         });
     }

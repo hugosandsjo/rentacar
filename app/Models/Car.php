@@ -10,7 +10,7 @@ class Car extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['max_passengers', 'brand', 'model', 'price'];
+    protected $fillable = ['max_passengers', 'brand', 'model', 'price', 'fileName', 'image'];
 
 
     public function bookings(): HasMany

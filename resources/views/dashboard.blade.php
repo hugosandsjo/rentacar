@@ -10,6 +10,7 @@
             <li>booking id:{{ $booking->id }}, user id:{{ $booking->user_id }}, {{ $booking->start_date }},
                 {{ $booking->end_date }},
                 passagerare: {{ $booking->passengers }},bil: {{ $booking->car_id }}</li>
+            <img src="{{ asset($booking->car->image) }}" alt="Car Image" style="max-width: 300px">
 
             <form method="post" action="/bookings/{{ $booking->id }}/delete">
                 @csrf
