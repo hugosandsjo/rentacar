@@ -10,6 +10,7 @@
                     <input type="hidden" name="start_date" value="{{ $startDate }}">
                     <input type="hidden" name="end_date" value="{{ $endDate }}">
                     <input type="hidden" name="car_id" value="{{ $car->id }}">
+                    <input type="hidden" name="passengers" value="{{ $passengers }}">
                     <button type="submit">Book this Car</button>
                 </form>
             </li>

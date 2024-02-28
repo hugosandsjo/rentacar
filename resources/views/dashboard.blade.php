@@ -17,9 +17,9 @@
                 <button type="submit">Delete</button>
             </form>
 
-            <form action="/bookings/{{ $booking->id }}" method="POST">
+            <form action="/view-bookings" method="post">
                 @csrf
-                @method('put')
+                {{-- @method('') --}}
                 <button type="submit">Edit</button>
             </form>
         @endforeach
