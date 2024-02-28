@@ -1,0 +1,96 @@
+body {
+    background-color: rgb(236, 236, 236);
+    width: 100%;
+    margin: 0;
+}
+
+#car-list-header {
+    text-align: center;
+}
+
+.car-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin: 0 3rem 0 3rem;
+}
+
+.car-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.car-brand {
+    font-size: x-large;
+    margin: 0;
+}
+
+.search-form {
+    display: flex;
+    background-color: #fff;
+    margin: 20px 1rem;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 100%;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="date"]:focus,
+input[type="number"]:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+.search-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 1224px) {
+    .car-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 868px) {
+    .car-grid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1rem;
+        margin: 0 1rem 0 1rem;
+        padding: 0;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+}
