@@ -1,4 +1,10 @@
+<!DOCTYPE html>
 <html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+</head>
 
 <body>
     <h1>Hello, {{ $user->name }}</h1>
@@ -29,7 +35,7 @@
 
 
     {{-- Lägg till så man får vällja hur många platser innan så bara bilar med rätt antal säten visas --}}
-    <form method="GET" action="{{ route('cars.search') }}">
+    <form class="search-form" method="GET" action="{{ route('cars.search') }}">
 
         <label for="start_date">Start Date:</label>
         <input type="date" id="start_date" name="start_date" required>
@@ -40,7 +46,7 @@
         <label for="passengers">Passengers:</label>
         <input type="number" max="8" min="1" id="passengers" name="passengers" required>
 
-        <button type="submit">Search</button>
+        <button class="search-button" type="submit">Search</button>
     </form>
 
 
