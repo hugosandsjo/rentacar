@@ -11,7 +11,6 @@ class ViewBookingsController extends Controller
 
     public function __invoke(Request $request)
     {
-
         $user = Auth::user();
         return view('update', compact('user'));
     }

@@ -28,7 +28,7 @@
             <input id="passengers" name="passengers" type="number" value="{{ $booking->passengers }}">
 
             <label for="car_id">Car ID:</label>
-            <input id="car_id" name="car_id" type="number" value="{{ $booking->car_id }}">
+            <input id="car_id" name="car_id" type="number" value="{{ $booking->id }}">
 
             <button type="submit">Save</button>
         </form>

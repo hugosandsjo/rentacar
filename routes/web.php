@@ -26,15 +26,18 @@ Route::post('bookings', CreateBookingController::class);
 Route::get('dashboard', DashboardController::class);
 Route::get('/logout', LogoutController::class);
 
-Route::get('/bookings/{booking}/edit', [DashboardBookingController::class, 'edit'])->name('bookings.edit');
+
 
 Route::delete('bookings/{booking}/delete', DeleteBookingController::class);
 
-// Route::patch('/bookings/{booking}', UpdateBookingController::class);
+Route::patch('/bookings/{booking}', UpdateBookingController::class);
 
-Route::get('/dashboard/bookings/{id}/edit', DashboardBookingController::class)->name('dashboard.bookings.edit');
 
 Route::post('/view-bookings', ViewBookingsController::class);
 
 
 Route::get('/search-cars', [SearchCars::class, 'searchCars'])->name('cars.search');
+
+
+Route::get('/dashboard/bookings/{id}/edit', DashboardBookingController::class)->name('dashboard.bookings.edit');
+Route::get('/bookings/{booking}/edit', [DashboardBookingController::class, 'edit'])->name('bookings.edit');
