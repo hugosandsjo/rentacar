@@ -24,11 +24,14 @@
             <label for="end_date">End date:</label>
             <input id="end_date" name="end_date" type="date" value="{{ $booking->end_date }}">
 
-            <label for="passengers">Passengers:</label>
-            <input id="passengers" name="passengers" type="number" value="{{ $booking->passengers }}">
+            <label for="passengers">Passengers: {{ $booking->passengers }}</label>
+            <input id="passengers" name="passengers" type="hidden" value="{{ $booking->passengers }}">
 
-            <label for="car_id">Car ID</label>
-            <input id="car_id" name="car_id" type="number" value="{{ $booking->car_id }}">
+            <label for="brand">Car: {{ $booking->car->brand }}</label>
+            <input id="car_id" name="car_id" type="hidden" value="{{ $booking->car_id }}">
+
+            <label for="model">Model: {{ $booking->car->model }}</label>
+
 
             <button type="submit">Save</button>
         </form>
