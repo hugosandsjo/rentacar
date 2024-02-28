@@ -4,7 +4,9 @@
         @foreach ($cars as $car)
             <li>
                 Car id:{{ $car->id }}, {{ $car->brand }}, {{ $car->model }}, Max: {{ $car->max_passengers }},
-                Price:{{ $car->price }}
+                Price:{{ $car->price }}, <br>
+                <img src="{{ asset($car->image) }}" alt="Car Image" style="max-width: 300px">
+                <br>
                 <form method="post" action="/bookings">
                     @csrf
                     <input type="hidden" name="start_date" value="{{ $startDate }}">
