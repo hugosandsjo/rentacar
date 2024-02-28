@@ -35,8 +35,8 @@
         <label for="end_date">End Date:</label>
         <input type="date" id="end_date" name="end_date" required>
 
-        <label for="passangers">Passengers:</label>
-        <input type="number" max="8" min="1" id="passangers" name="passangers" required>
+        <label for="passengers">Passengers:</label>
+        <input type="number" max="8" min="1" id="passengers" name="passengers" required>
 
         <button type="submit">Search</button>
     </form>
@@ -46,7 +46,7 @@
 
     {{-- skickas till en komponent som bara visas om det finns bilar att visa --}}
     @if (isset($availableCars))
-        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" :passangers="$passangers" />
+        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" :passengers="$passengers" />
     @endif
 
 

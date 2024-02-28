@@ -9,8 +9,6 @@
                     @csrf
                     <input type="hidden" name="start_date" value="{{ $startDate }}">
                     <input type="hidden" name="end_date" value="{{ $endDate }}">
-                    <label for="passengers">Number of passengers</label>
-                    <input name="passengers" id="passengers" type="number" />
                     <input type="hidden" name="car_id" value="{{ $car->id }}">
                     <button type="submit">Book this Car</button>
                 </form>

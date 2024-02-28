@@ -17,7 +17,7 @@ class SearchCars extends Controller
 
         $user = $request->user();
 
-        $passangers = $request->input('passangers');
+        $passengers = $request->input('passengers');
 
 
 
@@ -32,12 +32,17 @@ class SearchCars extends Controller
         })->get();
 
 
+        $availableCars = $availableCars->filter(function ($car) use ($passengers) {
+            return $car->max_passengers >= $passengers;
+        });
+
 
         return view('dashboard', [
             'availableCars' => $availableCars,
             'user' => $user,
             'startDate' => $validatedData['start_date'],
-            'endDate' => $validatedData['end_date']
+            'endDate' => $validatedData['end_date'],
+            'passengers' => $passengers,
         ]);
     }
 }

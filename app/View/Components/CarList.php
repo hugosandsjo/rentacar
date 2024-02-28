@@ -11,20 +11,20 @@ class CarList extends Component
     public $cars;
     public $startDate;
     public $endDate;
-    public $passangers;
+    public $passengers;
 
-    public function __construct($cars, $startDate, $endDate, $passangers)
+    public function __construct($cars, $startDate, $endDate, $passengers)
     {
         $this->cars = $cars;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
-        $this->passangers = $passangers;
+        $this->passengers = $passengers;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.car-list');
     }
