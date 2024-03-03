@@ -7,17 +7,31 @@
 </head>
 
 <body>
-    <h1>Hello, {{ $user->name }}</h1>
+    <nav><h1>Rentacar</h1> <a href="{{ url('/logout') }}">LOG OUT</a></nav>
+    <h2>Hello, {{ $user->name }}</h2>
+<h3>Your bookings:</h3>
 
-    <a href="{{ url('/logout') }}">LOG OUT</a>
-
-    <ul>
+<section class="your-bookings">
         @foreach ($user->bookings as $booking)
-            <li>booking id:{{ $booking->id }}, user id:{{ $booking->user_id }}, {{ $booking->start_date }},
-                {{ $booking->end_date }},
-                passagerare: {{ $booking->passengers }},bil: {{ $booking->car_id }}</li>
-            <img src="{{ asset($booking->car->image) }}" alt="Car Image" style="max-width: 300px">
-
+        <div class="car">
+            <h2>Booking id: {{ $booking->id }} </h2>
+        <div class="car-image">
+        <img src="{{ asset($booking->car->image) }}"
+        alt="Car Image" style="max-width: 300px">
+        </div>
+    <div class="car-description">
+        <div>
+        <h4>Booking id: {{ $booking->id }} </h4>
+        <h4>User id: {{ $booking->user_id }} </h4>
+        <h4>Start date: {{ $booking->start_date }} </h4>
+        </div>
+    <div>
+        <h4>Passengers: {{ $booking->passengers }} </h4>
+        <h4>Car: {{ $booking->car_id }} </h4>
+        <h4>End date: {{ $booking->end_date }} </h4>
+    </div>
+    </div>
+    <div class="button-div">
             <form method="post" action="/bookings/{{ $booking->id }}/delete">
                 @csrf
                 @method('delete')
@@ -29,8 +43,10 @@
                 {{-- @method('') --}}
                 <button type="submit">Edit</button>
             </form>
+        </div>
+    </div>
         @endforeach
-    </ul>
+</section>
 
 
 
