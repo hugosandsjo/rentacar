@@ -12,8 +12,14 @@ class CreateBookingTest extends TestCase
     /**
      * A basic feature test example.
      */
+
+    use WithFaker, RefreshDatabase;
+
     public function test_create_booking()
     {
+
+        $this->withExceptionHandling();
+
         $user = User::factory()->create();
 
         $bookingData = [
@@ -24,11 +30,11 @@ class CreateBookingTest extends TestCase
             'user_id' => $user->id
         ];
 
-        $response = $this->actingAs($user)
-            ->post('/bookings', $bookingData);
-
-        $response->assertRedirect('/dashboard');
+        $this->actingAs($user)
+            ->post('/bookings', $bookingData)->assertRedirect('/dashboard');
 
         $this->assertDatabaseHas('bookings', $bookingData + ['user_id' => $user->id]);
+
+        $this->get('/bookings')->assertSee($bookingData);
     }
 }

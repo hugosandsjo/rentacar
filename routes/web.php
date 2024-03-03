@@ -20,7 +20,7 @@ Route::post('bookings', CreateBookingController::class);
 Route::get('dashboard', DashboardController::class);
 Route::get('/logout', LogoutController::class);
 
-Route::delete('bookings/{booking}/delete', DeleteBookingController::class);
+Route::delete('bookings/{booking}/delete', DeleteBookingController::class)->name('booking.destroy');
 
 Route::post('/view-bookings', ViewBookingsController::class);
 
