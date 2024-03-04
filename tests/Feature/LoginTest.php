@@ -12,9 +12,6 @@ use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
     use RefreshDatabase;
 
     public function test_view_login_form()
@@ -44,6 +41,7 @@ class LoginTest extends TestCase
                 'password' => 'somepassword',
             ]
         );
+
         $response->assertSessionHasErrors();
     }
 }

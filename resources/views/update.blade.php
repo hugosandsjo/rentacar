@@ -12,7 +12,7 @@
     <h1>Hello, {{ $user->name }}</h1>
     <a href="{{ url('/logout') }}">LOG OUT</a>
 </nav>
-<a href="{{ url('/dashboard') }}">BACK</a>
+<a href="{{ url('/dashboard') }}"> < BACK</a>
     @foreach ($user->bookings as $booking)
     <div>
         <form method="POST" action="/bookings/{{ $booking->id }}">
@@ -34,7 +34,6 @@
             <input id="car_id" name="car_id" type="hidden" value="{{ $booking->car_id }}">
 
             <label for="model">Model: {{ $booking->car->model }}</label>
-
 
             <button type="submit">Save changes</button>
         </form>

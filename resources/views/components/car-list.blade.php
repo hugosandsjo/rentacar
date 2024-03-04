@@ -1,6 +1,9 @@
 <div class="car-list">
-
     <h1 id="car-list-header">Available Cars</h1>
+    <div class="date-div">
+    <h2>From: {{ $startDate }}</h2>
+    <h2>From: {{ $endDate }}</h2>
+</div>
     <ul class="car-grid">
 
         @foreach ($cars as $car)
