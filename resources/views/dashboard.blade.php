@@ -41,7 +41,7 @@
             <form action="/view-bookings" method="post">
                 @csrf
                 {{-- @method('') --}}
-                <button type="submit">Edit</button>
+                <button class="edit-button" type="submit">Edit</button>
             </form>
         </div>
     </div>

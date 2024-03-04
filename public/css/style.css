@@ -111,6 +111,18 @@ button:hover {
     cursor: pointer;
 }
 
+.edit-button {
+    background: none;
+    border: 2px solid black;
+    color: black;
+}
+
+.date-div {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
 #car-list-header {
     text-align: center;
 }

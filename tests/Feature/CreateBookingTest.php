@@ -9,9 +9,6 @@ use App\Models\User;
 
 class CreateBookingTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
 
     use WithFaker, RefreshDatabase;
 
