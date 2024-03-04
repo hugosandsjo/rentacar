@@ -2,6 +2,7 @@
 
     <h1 id="car-list-header">Available Cars</h1>
     <ul class="car-grid">
+
         @foreach ($cars as $car)
             <li class="car-item">
                 <div class="car-brand">
