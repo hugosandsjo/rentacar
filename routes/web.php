@@ -17,28 +17,22 @@ use Illuminate\Support\Facades\Auth;
 
 Route::view('/', 'index')->name('login');
 
-Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('/dashboard');
-    }
 
-    return view('index');
-});
 
-Route::patch('/bookings/{booking}', UpdateBookingController::class)->name('booking.update');
+Route::patch('/bookings/{booking}', UpdateBookingController::class)->name('booking.update')->middleware('auth');
 
 Route::post('login', LoginController::class);
 
 Route::post('/createuser', CreateUser::class)->name('createuser');
-Route::post('bookings', CreateBookingController::class);
-Route::post('/view-bookings', ViewBookingsController::class);
+Route::post('bookings', CreateBookingController::class)->middleware('auth');
+Route::post('/view-bookings', ViewBookingsController::class)->middleware('auth');
 
 
 Route::get('signup', Signup::class);
-Route::get('dashboard', DashboardController::class);
+Route::get('dashboard', DashboardController::class)->middleware('auth');
 Route::get('/logout', LogoutController::class);
 Route::get('/search-cars', [SearchCars::class, 'searchCars'])->name('cars.search');
 
-Route::delete('bookings/{booking}/delete', DeleteBookingController::class)->name('booking.destroy');
+Route::delete('bookings/{booking}/delete', DeleteBookingController::class)->name('booking.destroy')->middleware('auth');;
 
 // Unused?
