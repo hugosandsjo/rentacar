@@ -1,4 +1,14 @@
-<div>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Rentacar</h1>
+<div class="login-div">
 
     <form method="post" action="/login">
         @csrf
@@ -7,7 +17,7 @@
             <input name="email" id="email" type="email" />
         </div>
         <div>
-            <label for="password">Password</label>
+            <label for="password">Password</label> 
             <input name="password" id="password" type="password" />
         </div>
         <button type="submit">Login</button>
@@ -24,3 +34,8 @@
     @endif
 
 </div>
+
+
+</body>
+
+</html>
