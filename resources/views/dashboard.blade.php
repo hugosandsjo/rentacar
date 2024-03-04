@@ -48,7 +48,12 @@
         @endforeach
 </section>
 
+<section class="search-section">
 
+<div class="search-div">
+    <h1>Search availability</h1>
+    <p>Lorem ipsum</p>
+</div>
 
     {{-- Lägg till så man får vällja hur många platser innan så bara bilar med rätt antal säten visas --}}
     <form class="search-form" method="GET" action="{{ route('cars.search') }}">
@@ -60,12 +65,12 @@
         <input type="date" id="end_date" name="end_date" required>
 
         <label for="passengers">Passengers:</label>
-        <input type="number" max="8" min="1" id="passengers" name="passengers" required>
+        <input type="number" value="2" max="8" min="1" id="passengers" name="passengers" required>
 
         <button class="search-button" type="submit">Search</button>
     </form>
 
-
+</section>
 
 
     {{-- skickas till en komponent som bara visas om det finns bilar att visa --}}
