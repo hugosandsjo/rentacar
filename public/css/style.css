@@ -63,6 +63,10 @@ nav a:hover {
 }
 
 .car {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     border-radius: 3rem;
     padding: 3rem;
     margin: 2rem 0rem;
@@ -148,6 +152,10 @@ button:hover {
     padding: 1rem;
 }
 
+.car-image img {
+    max-width: 300px;
+}
+
 .car-brand {
     font-size: x-large;
     margin: 0;
@@ -191,9 +199,7 @@ input[type="number"]:focus {
     outline: none;
 }
 .search-button {
-    /* background-color: #4caf50; */
     color: white;
-    /* padding: 10px 20px; */
     border: none;
     border-radius: 2rem;
     cursor: pointer;
@@ -202,6 +208,24 @@ input[type="number"]:focus {
 
 .search-button:hover {
     background-color: #45a049;
+}
+
+.update-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.booking-div {
+    min-width: 18rem;
+}
+
+.back-div a {
+    color: black;
+}
+
+.back-div a:hover {
+    opacity: 50%;
 }
 
 /* login styles */
@@ -218,7 +242,7 @@ input[type="number"]:focus {
 
 .login-div form {
     height: 400px;
-    width: 400px;
+    /* width: 400px; */
 }
 
 input {
@@ -237,12 +261,41 @@ form button {
     align-items: center;
 }
 
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox-div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
 /* login styles */
 /* to here */
 
 @media screen and (max-width: 1224px) {
     .car-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .car {
+        width: 100%;
+    }
+
+    .car-image img {
+        max-width: 100%;
+    }
+
+    .car-description div {
+        width: 40%;
+    }
+
+    .your-bookings {
+        gap: 0;
     }
 }
 

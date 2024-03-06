@@ -12,9 +12,12 @@
     <h1>Hello, {{ $user->name }}</h1>
     <a href="{{ url('/logout') }}">LOG OUT</a>
 </nav>
-<a href="{{ url('/dashboard') }}"> < BACK</a>
+<div class="back-div">
+<h2 class="back-button"><a href="{{ url('/dashboard') }}"> < BACK</a></h2>
+</div>
+<section class="update-section">
     @foreach ($user->bookings as $booking)
-    <div>
+    <div class="booking-div">
         <form method="POST" action="/bookings/{{ $booking->id }}">
             @csrf
             @method('PATCH')
@@ -39,6 +42,11 @@
         </form>
     </div>
 @endforeach
-
+</section>
+<script>
+    document.getElementById('start_date').addEventListener('change', function() {
+        document.getElementById('end_date').min = this.value;
+    });
+    </script>
 </body>
 </html>
