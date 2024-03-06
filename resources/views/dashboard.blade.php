@@ -62,8 +62,10 @@
             <label for="start_date">Start Date:</label>
             <input type="date" id="start_date" name="start_date" required>
 
-            <label for="end_date">End Date:</label>
-            <input type="date" id="end_date" name="end_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" min="" required>
+
 
             <label for="passengers">Passengers:</label>
             <input type="number" value="2" max="8" min="1" id="passengers" name="passengers"
@@ -81,9 +83,11 @@
     @endif
 
 
-
-
-
+    <script>
+        document.getElementById('start_date').addEventListener('change', function() {
+            document.getElementById('end_date').min = this.value;
+        });
+        </script>
 </body>
 
 </html>
