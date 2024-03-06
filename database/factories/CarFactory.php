@@ -28,6 +28,9 @@ class CarFactory extends Factory
             'brand' =>  $vehicle['brand'],
             'model' => $vehicle['model'],
             'price' => $this->faker->numberBetween(100, 1000),
+            'fileName' => $this->faker->word . '.jpg',
+            'image' => 'images/' . $this->faker->word . '.jpg',
+
         ];
     }
 }
