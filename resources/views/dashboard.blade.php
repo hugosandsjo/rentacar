@@ -17,6 +17,7 @@
         @foreach ($user->bookings as $booking)
             <div class="car">
                 <h2>Booking id: {{ $booking->id }} </h2>
+                <h2>{{ $booking->car->pickupLocation->name }} </h2>
                 <div class="car-image">
                     <img src="{{ asset($booking->car->image) }}" alt="Car Image" style="max-width: 300px">
                 </div>
@@ -69,7 +70,7 @@
             <label for="pickup_location">Pickup Location:</label>
             <select id="pickup_location" name="pickup_location">
                 @foreach ($pickupLocations as $pickupLocation)
-                    <option value="{{ $pickupLocation->id }}">{{ $pickupLocation->id }}</option>
+                    <option value="{{ $pickupLocation->id }}">{{ $pickupLocation->name }}</option>
                 @endforeach
             </select>
 
@@ -86,7 +87,7 @@
 
     {{-- skickas till en komponent som bara visas om det finns bilar att visa --}}
     @if (isset($availableCars))
-        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" :passengers="$passengers" />
+        <x-car-list :pickupLocationId="$pickupLocationId" :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" :passengers="$passengers" />
     @endif
 
 

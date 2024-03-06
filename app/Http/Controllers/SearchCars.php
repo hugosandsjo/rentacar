@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use App\Models\PickupLocation;
 
 class SearchCars extends Controller
 {
@@ -37,12 +38,15 @@ class SearchCars extends Controller
 
 
 
+        $pickupLocations = PickupLocation::all();
         return view('dashboard', [
             'availableCars' => $availableCars,
+            'pickupLocationId' => $pickupLocationId,
             'user' => $user,
             'startDate' => $validatedData['start_date'],
             'endDate' => $validatedData['end_date'],
             'passengers' => $passengers,
+            'pickupLocations' => $pickupLocations,
         ]);
     }
 }
