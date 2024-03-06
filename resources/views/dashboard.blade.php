@@ -63,8 +63,15 @@
             <input type="date" id="start_date" name="start_date" required>
 
 
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" min="" required>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" min="" required>
+
+            <label for="pickup_location">Pickup Location:</label>
+            <select id="pickup_location" name="pickup_location">
+                @foreach ($pickupLocations as $pickupLocation)
+                    <option value="{{ $pickupLocation->id }}">{{ $pickupLocation->id }}</option>
+                @endforeach
+            </select>
 
 
             <label for="passengers">Passengers:</label>
@@ -87,7 +94,7 @@
         document.getElementById('start_date').addEventListener('change', function() {
             document.getElementById('end_date').min = this.value;
         });
-        </script>
+    </script>
 </body>
 
 </html>

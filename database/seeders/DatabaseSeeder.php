@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CarSeeder::class,
             BookingSeeder::class,
-
+            PickupLocationSeeder::class
         ]);
     }
 }
