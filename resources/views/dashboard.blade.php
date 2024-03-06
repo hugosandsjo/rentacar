@@ -7,70 +7,72 @@
 </head>
 
 <body>
-    <nav><h1>Rentacar</h1> <a href="{{ url('/logout') }}">LOG OUT</a></nav>
+    <nav>
+        <h1>Rentacar</h1> <a href="{{ url('/logout') }}">LOG OUT</a>
+    </nav>
     <h2>Hello, {{ $user->name }}</h2>
-<h3>Your bookings:</h3>
+    <h3>Your bookings:</h3>
 
-<section class="your-bookings">
+    <section class="your-bookings">
         @foreach ($user->bookings as $booking)
-        <div class="car">
-            <h2>Booking id: {{ $booking->id }} </h2>
-        <div class="car-image">
-        <img src="{{ asset($booking->car->image) }}"
-        alt="Car Image" style="max-width: 300px">
-        </div>
-    <div class="car-description">
-        <div>
-        <h4>Booking id: {{ $booking->id }} </h4>
-        <h4>User id: {{ $booking->user_id }} </h4>
-        <h4>Start date: {{ $booking->start_date }} </h4>
-        </div>
-    <div>
-        <h4>Passengers: {{ $booking->passengers }} </h4>
-        <h4>Car: {{ $booking->car_id }} </h4>
-        <h4>End date: {{ $booking->end_date }} </h4>
-    </div>
-    </div>
-    <div class="button-div">
-            <form method="post" action="/bookings/{{ $booking->id }}/delete">
-                @csrf
-                @method('delete')
-                <button type="submit">Delete</button>
-            </form>
+            <div class="car">
+                <h2>Booking id: {{ $booking->id }} </h2>
+                <div class="car-image">
+                    <img src="{{ asset($booking->car->image) }}" alt="Car Image" style="max-width: 300px">
+                </div>
+                <div class="car-description">
+                    <div>
+                        <h4>Booking id: {{ $booking->id }} </h4>
+                        <h4>User id: {{ $booking->user_id }} </h4>
+                        <h4>Start date: {{ $booking->start_date }} </h4>
+                    </div>
+                    <div>
+                        <h4>Passengers: {{ $booking->passengers }} </h4>
+                        <h4>Car: {{ $booking->car_id }} </h4>
+                        <h4>End date: {{ $booking->end_date }} </h4>
+                    </div>
+                </div>
+                <div class="button-div">
+                    <form method="post" action="/bookings/{{ $booking->id }}/delete">
+                        @csrf
+                        @method('delete')
+                        <button type="submit">Delete</button>
+                    </form>
 
-            <form action="/view-bookings" method="post">
-                @csrf
-                {{-- @method('') --}}
-                <button class="edit-button" type="submit">Edit</button>
-            </form>
-        </div>
-    </div>
+                    <form action="/view-bookings" method="post">
+                        @csrf
+                        {{-- @method('') --}}
+                        <button class="edit-button" type="submit">Edit</button>
+                    </form>
+                </div>
+            </div>
         @endforeach
-</section>
+    </section>
 
-<section class="search-section">
+    <section class="search-section">
 
-<div class="search-div">
-    <h1>Search availability</h1>
-    <p>Lorem ipsum</p>
-</div>
+        <div class="search-div">
+            <h1>Search availability</h1>
+            <p>Lorem ipsum</p>
+        </div>
 
-    {{-- Lägg till så man får vällja hur många platser innan så bara bilar med rätt antal säten visas --}}
-    <form class="search-form" method="GET" action="{{ route('cars.search') }}">
+        {{-- Lägg till så man får vällja hur många platser innan så bara bilar med rätt antal säten visas --}}
+        <form class="search-form" method="GET" action="{{ route('cars.search') }}">
 
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
 
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" required>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
 
-        <label for="passengers">Passengers:</label>
-        <input type="number" value="2" max="8" min="1" id="passengers" name="passengers" required>
+            <label for="passengers">Passengers:</label>
+            <input type="number" value="2" max="8" min="1" id="passengers" name="passengers"
+                required>
 
-        <button class="search-button" type="submit">Search</button>
-    </form>
+            <button class="search-button" type="submit">Search</button>
+        </form>
 
-</section>
+    </section>
 
 
     {{-- skickas till en komponent som bara visas om det finns bilar att visa --}}
