@@ -21,7 +21,6 @@ class DeleteBookingTest extends TestCase
 
         $car = Car::factory()->create();
 
-
         $booking = Booking::factory()->create([
             'user_id' => $user->id,
             'car_id' => $car->id

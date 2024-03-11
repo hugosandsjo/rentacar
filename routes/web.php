@@ -14,9 +14,7 @@ use App\Http\Controllers\Signup;
 use Illuminate\Support\Facades\Auth;
 
 
-
 Route::view('/', 'index')->name('login');
-
 
 
 Route::patch('/bookings/{booking}', UpdateBookingController::class)->name('booking.update')->middleware('auth'); //test done
