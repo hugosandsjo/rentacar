@@ -18,7 +18,9 @@ class DeleteBookingTest extends TestCase
         $this->withExceptionHandling();
 
         $user = User::factory()->create();
+
         $car = Car::factory()->create();
+
 
         $booking = Booking::factory()->create([
             'user_id' => $user->id,

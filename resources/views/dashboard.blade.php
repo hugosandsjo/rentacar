@@ -19,7 +19,7 @@
                 <h2>Booking id: {{ $booking->id }} </h2>
                 <h2>{{ $booking->car->pickupLocation->name }} </h2>
                 <div class="car-image">
-                    <img src="{{ asset($booking->car->image) }}" alt="Car Image" style="max-width: 300px">
+                    <img src="{{ asset($booking->car->image) }}" alt="Car Image">
                 </div>
                 <div class="car-description">
                     <div>

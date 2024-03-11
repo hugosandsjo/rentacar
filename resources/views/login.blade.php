@@ -9,8 +9,10 @@
         <label for="password">Password</label>
         <input name="password" id="password" type="password" />
     </div>
+    <div class="checkbox-div">
     <label for="remember">Remember Me:</label>
-    <input type="checkbox" id="remember" name="remember">
+    <input class="checkbox" type="checkbox" id="remember" name="remember">
+</div>
 
     <button type="submit">Login</button>
 </form>
