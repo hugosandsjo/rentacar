@@ -18,6 +18,7 @@ class UpdateBookingTest extends TestCase
         $this->withExceptionHandling();
 
         $user = User::factory()->create();
+
         $car = Car::factory()->create([
             'fileName' => 'test.jpg',
             'image' => 'test.jpg',
