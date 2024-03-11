@@ -27,7 +27,6 @@ class BookingFactory extends Factory
             'passengers' => $this->faker->numberBetween(1, 5),
             'user_id' => $this->faker->randomElement(User::pluck('id')->toArray()),
             'car_id' => $this->faker->randomElement(Car::pluck('id')->toArray()),
-
         ];
     }
 }

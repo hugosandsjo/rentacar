@@ -20,10 +20,7 @@ class DashboardTest extends TestCase
         $user = User::factory()->create();
         $this->actingAs($user);
 
-        Car::factory()->create([
-            'fileName' => 'test.jpg',
-            'image' => 'test.jpg'
-        ]);
+        Car::factory()->create();
 
         $response = $this->get('/dashboard');
         $response->assertStatus(200);
