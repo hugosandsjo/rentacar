@@ -30,7 +30,7 @@ class CarFactory extends Factory
             'price' => $this->faker->numberBetween(100, 1000),
             'fileName' => $this->faker->word . '.jpg',
             'image' => 'images/' . $this->faker->word . '.jpg',
-
+            'pickup_location_id' => $this->faker->numberBetween(1, 3),
         ];
     }
 }
