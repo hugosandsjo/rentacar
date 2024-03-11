@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Auth;
 Route::view('/', 'index')->name('login');
 
 
-
 Route::patch('/bookings/{booking}', UpdateBookingController::class)->name('booking.update')->middleware('auth'); //test done
 
 Route::post('login', LoginController::class); //test done
@@ -41,5 +40,3 @@ Route::get('/signup', function () {
 })->name('signup'); //test done
 
 Route::delete('bookings/{booking}/delete', DeleteBookingController::class)->name('booking.destroy')->middleware('auth');; //test done
-
-// Unused?
