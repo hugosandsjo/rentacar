@@ -11,7 +11,7 @@ use App\Models\Car;
 
 class UpdateBookingTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
     public function test_update_booking()
     {
@@ -19,27 +19,23 @@ class UpdateBookingTest extends TestCase
 
         $user = User::factory()->create();
 
-        $car = Car::factory()->create([
-            'fileName' => 'test.jpg',
-            'image' => 'test.jpg',
-        ]);
+        $car = Car::factory()->create();
 
-        $booking = Booking::factory()->create([
-            'user_id' => $user->id,
-            'car_id' => $car->id
-        ]);
+        $booking = Booking::factory()->create();
+
+        $start_date = $this->faker->dateTimeBetween('now', '+2 years');
+        $end_date = (clone $start_date)->modify('+' . rand(1, 14) . ' days');
 
         $updatedBookingData = [
-            'start_date' => now()->addDays(rand(1, 10))->format('Y-m-d'),
-            'end_date' => now()->addDays(rand(11, 20))->format('Y-m-d'),
-            'passengers' => rand(1, 8),
+            'start_date' => $start_date->format('Y-m-d'),
+            'end_date' => $end_date->format('Y-m-d'),
+            'passengers' => $this->faker->numberBetween(1, 8),
             'car_id' => $car->id,
             'user_id' => $user->id
         ];
 
         $response = $this->actingAs($user)->patch(route('booking.update', ['booking' => $booking->id]), $updatedBookingData);
 
-        // Assert view after update instead of redirect
         $response->assertStatus(200);
 
         $this->assertDatabaseHas('bookings', $updatedBookingData);

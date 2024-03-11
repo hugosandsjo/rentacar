@@ -18,6 +18,7 @@ class DashboardTest extends TestCase
     public function test_dasboard_view(): void
     {
         $user = User::factory()->create();
+
         $this->actingAs($user);
 
         Car::factory()->create();

@@ -17,16 +17,16 @@ class CreateUserTest extends TestCase
         $this->withExceptionHandling();
 
         $data = [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password',
+            'name' => $this->faker->firstName(),
+            'email' => $this->faker->unique()->email(),
+            'password' => $this->faker->password(8, 20),
         ];
 
         $response = $this->post('createuser', $data);
 
         $this->assertDatabaseHas('users', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => $data['name'],
+            'email' => $data['email'],
         ]);
 
         $this->assertAuthenticated();
