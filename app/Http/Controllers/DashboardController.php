@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PickupLocation;
 
 class DashboardController extends Controller
 {
@@ -12,6 +13,8 @@ class DashboardController extends Controller
     {
         $cars = \App\Models\Car::all();
         $user = Auth::user();
-        return view('dashboard', compact('user'), compact('cars'));
+        $pickupLocations = PickupLocation::all();
+
+        return view('dashboard', compact('user', 'cars', 'pickupLocations'));
     }
 }

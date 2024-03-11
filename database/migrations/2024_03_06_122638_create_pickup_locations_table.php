@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('pickup_locations', function (Blueprint $table) {
             $table->id();
-            $table->integer('max_passengers');
-            $table->string('brand');
-            $table->string('model');
-            $table->integer('price');
-            $table->string('fileName');
-            $table->string('image');
-            $table->unsignedBigInteger('pickup_location_id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('longitude');
+            $table->string('latitude');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('pickup_locations');
     }
 };

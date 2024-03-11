@@ -17,6 +17,7 @@
         @foreach ($user->bookings as $booking)
             <div class="car">
                 <h2>Booking id: {{ $booking->id }} </h2>
+                <h2>{{ $booking->car->pickupLocation->name }} </h2>
                 <div class="car-image">
                     <img src="{{ asset($booking->car->image) }}" alt="Car Image">
                 </div>
@@ -63,8 +64,15 @@
             <input type="date" id="start_date" name="start_date" required>
 
 
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" min="" required>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" min="" required>
+
+            <label for="pickup_location">Pickup Location:</label>
+            <select id="pickup_location" name="pickup_location">
+                @foreach ($pickupLocations as $pickupLocation)
+                    <option value="{{ $pickupLocation->id }}">{{ $pickupLocation->name }}</option>
+                @endforeach
+            </select>
 
 
             <label for="passengers">Passengers:</label>
@@ -79,7 +87,7 @@
 
     {{-- skickas till en komponent som bara visas om det finns bilar att visa --}}
     @if (isset($availableCars))
-        <x-car-list :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" :passengers="$passengers" />
+        <x-car-list :pickupLocationId="$pickupLocationId" :cars="$availableCars" :startDate="$startDate" :endDate="$endDate" :passengers="$passengers" />
     @endif
 
 
@@ -87,7 +95,7 @@
         document.getElementById('start_date').addEventListener('change', function() {
             document.getElementById('end_date').min = this.value;
         });
-        </script>
+    </script>
 </body>
 
 </html>
