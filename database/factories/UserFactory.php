@@ -32,7 +32,6 @@ class UserFactory extends Factory
         $name = $firstName . ' ' . $lastName;
 
         return [
-
             'name' => $name,
             'email' => $email,
             'password' => static::$password ??= Hash::make('password'),
