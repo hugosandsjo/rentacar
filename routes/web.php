@@ -34,11 +34,11 @@ Route::get('/search-cars', [SearchCars::class, 'searchCars'])->name('cars.search
 
 Route::get('/login', function () {
     return view('login');
-})->name('login'); //test done
+})->name('loginForm'); //test done
 
 Route::get('/signup', function () {
     return view('signup');
-})->name('signup'); //test done
+})->name('signupForm'); //test done
 
 Route::delete('bookings/{booking}/delete', DeleteBookingController::class)->name('booking.destroy')->middleware('auth');; //test done
 

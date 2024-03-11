@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use App\Models\Car;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Booking>
@@ -18,9 +19,8 @@ class BookingFactory extends Factory
      */
     public function definition(): array
     {
-        $startDate = $this->faker->dateTimeBetween('-2 years', '+2 years');
-        $endDate = (clone $startDate)->modify('+1 month');
-
+        $startDate = $this->faker->dateTimeBetween(Carbon::now(), Carbon::now()->addMonths(4));
+        $endDate = (clone $startDate)->modify('+' . $this->faker->numberBetween(1, 7) . ' days');
         return [
             'start_date' => $startDate,
             'end_date' => $endDate,

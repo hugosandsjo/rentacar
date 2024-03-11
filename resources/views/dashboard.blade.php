@@ -54,7 +54,7 @@
 
         <div class="search-div">
             <h1>Search availability</h1>
-            <p>Lorem ipsum</p>
+
         </div>
 
         {{-- Lägg till så man får vällja hur många platser innan så bara bilar med rätt antal säten visas --}}
@@ -95,30 +95,9 @@
         document.getElementById('start_date').addEventListener('change', function() {
             document.getElementById('end_date').min = this.value;
         });
+
+        start_date.min = new Date().toISOString().split("T")[0];
     </script>
 </body>
 
 </html>
-
-
-{{-- <form method="post" action="/bookings">
-        @csrf
-        <div>
-            <label for="start_date">Start date</label>
-            <input name="start_date" id="start_date" type="date" />
-            <label for="end_date">End date</label>
-            <input name="end_date" id="end_date" type="date" />
-            <label for="passengers">Number of passengers</label>
-            <input name="passengers" id="passengers" type="number" />
-            <label for="car_id">Car</label>
-            <select name="car_id" id="car_id">
-                @foreach ($cars as $car)
-                    <option value="{{ $car->id }}">{{ $car->brand }}, {{ $car->model }}, Max:
-                        {{ $car->max_passengers }}, Price:{{ $car->price }}</option>
-                @endforeach
-            </select>
-
-
-        </div>
-        <button type="submit">Submit</button>
-    </form> --}}
